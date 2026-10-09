@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/AppIcon.png" width="112" alt="QuotaBar 图标">
+  <img src="https://github.com/user-attachments/assets/0b86ad98-ab19-4bf0-a2f7-f6d271cd26bb" width="112" alt="QuotaBar 图标">
 </p>
 
 <h1 align="center">QuotaBar</h1>
@@ -7,14 +7,14 @@
 <p align="center">原生 Swift · macOS 13+ · 无第三方依赖 · MIT</p>
 
 <p align="center">
-  <img src="docs/images/status-label.png" width="147" alt="上方显示 Codex 和 Cursor 名称，下方显示剩余百分比">
+  <img src="https://github.com/user-attachments/assets/67879f7a-43f1-4f79-b093-5cb0dc6a11f0" width="147" alt="上方显示 Codex 和 Cursor 名称，下方显示剩余百分比">
 </p>
 
 QuotaBar 复用你本机 Codex 和 Cursor 的现有登录状态，无需复制令牌或配置 API Key。菜单栏采用两层文字设计，点击即可查看全部额度和重置时间。
 
 <p align="center">
-  <img src="docs/images/panel-light.png" width="350" alt="QuotaBar 浅色面板">
-  <img src="docs/images/panel-dark.png" width="350" alt="QuotaBar 深色面板">
+  <img src="https://github.com/user-attachments/assets/4ff098c4-cba0-47ef-a9ed-eae078bb79bc" width="350" alt="QuotaBar 浅色面板">
+  <img src="https://github.com/user-attachments/assets/8c0ee0f5-c10f-457b-b79a-8d9a6fc8f92a" width="350" alt="QuotaBar 深色面板">
 </p>
 
 *以上为使用演示数据渲染的界面，实际额度由你的账号返回。*
