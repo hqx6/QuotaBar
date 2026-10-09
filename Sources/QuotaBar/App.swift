@@ -131,10 +131,9 @@ struct QuotaPanel: View {
                                         .frame(width: geometry.size.width * quota.remaining / 100)
                                 }
                             }.frame(height: 4)
-                            if let date = quota.resetsAt {
-                                Text("重置 \(date.formatted(.dateTime.month().day().hour().minute()))")
-                                    .font(.system(size: 9)).foregroundStyle(.secondary).fixedSize()
-                            }
+                            Text(quota.resetsAt.map { "重置 \($0.formatted(.dateTime.month().day().hour().minute()))" } ?? "重置时间未知")
+                                .font(.system(size: 9)).foregroundStyle(.secondary)
+                                .fixedSize().frame(width: 118, alignment: .trailing)
                         }
                         if let detail = quota.detail { Text(detail).font(.caption2).foregroundStyle(.secondary) }
                     }
@@ -259,6 +258,7 @@ enum QuotaBarMain {
         app.setActivationPolicy(.accessory)
         let store = UsageStore()
         if CommandLine.arguments.contains("--demo") {
+            store.loginEnabled = false
             let date = Date(timeIntervalSince1970: 1791590400)
             store.codex = UsageSnapshot(provider: "Codex", plan: "Plus", quotas: [
                 Quota(id: "codex.primary", label: "5 小时额度", remaining: 72, resetsAt: date.addingTimeInterval(3600)),
