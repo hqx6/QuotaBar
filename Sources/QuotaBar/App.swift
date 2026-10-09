@@ -117,24 +117,22 @@ struct QuotaPanel: View {
             if let snapshot {
                 ForEach(snapshot.quotas) { quota in
                     VStack(alignment: .leading, spacing: 3) {
-                        HStack {
+                        HStack(spacing: 8) {
                             Text(quota.label).font(.system(size: 11))
                             Spacer()
+                            Text(quota.resetsAt.map { "重置 \($0.formatted(.dateTime.month().day().hour().minute()))" } ?? "重置时间未知")
+                                .font(.system(size: 9)).foregroundStyle(.secondary).fixedSize()
                             Text(quota.formatted).font(.system(size: 12, weight: .semibold, design: .monospaced))
                                 .foregroundStyle(quota.remaining <= 15 ? .orange : tint)
+                                .frame(width: 48, alignment: .trailing)
                         }
-                        HStack(spacing: 8) {
-                            GeometryReader { geometry in
-                                ZStack(alignment: .leading) {
-                                    Capsule().fill(tint.opacity(0.12))
-                                    Capsule().fill(quota.remaining <= 15 ? .orange : tint)
-                                        .frame(width: geometry.size.width * quota.remaining / 100)
-                                }
-                            }.frame(height: 4)
-                            Text(quota.resetsAt.map { "重置 \($0.formatted(.dateTime.month().day().hour().minute()))" } ?? "重置时间未知")
-                                .font(.system(size: 9)).foregroundStyle(.secondary)
-                                .fixedSize().frame(width: 118, alignment: .trailing)
-                        }
+                        GeometryReader { geometry in
+                            ZStack(alignment: .leading) {
+                                Capsule().fill(tint.opacity(0.12))
+                                Capsule().fill(quota.remaining <= 15 ? .orange : tint)
+                                    .frame(width: geometry.size.width * quota.remaining / 100)
+                            }
+                        }.frame(height: 4)
                         if let detail = quota.detail { Text(detail).font(.caption2).foregroundStyle(.secondary) }
                     }
                 }
